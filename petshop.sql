@@ -39,3 +39,11 @@ CREATE TABLE Servico_Animal(
     FOREIGN KEY (codigo_animal) REFERENCES Animal(Codigo) ON DELETE CASCADE 
 ); 
 
+CREATE TABLE Produto( 
+    codigo_produto INT AUTO_INCREMENT PRIMARY KEY, 
+    nome VARCHAR(200) NOT NULL, 
+    descricao VARCHAR(200) NOT NULL, 
+    preco DECIMAL(10,2) NOT NULL, 
+    qtd_estoque INT NOT NULL 
+); 
+
