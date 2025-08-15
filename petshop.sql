@@ -58,3 +58,12 @@ CREATE TABLE Compra(
     FOREIGN KEY (CPF_funcionario) REFERENCES Funcionario(CPF) ON DELETE CASCADE 
 ); 
 
+CREATE TABLE CompraProduto(
+    codigo_produto INT, 
+    codigo_compra INT, 
+
+    PRIMARY KEY (codigo_produto, codigo_compra) 
+    FOREIGN KEY (codigo_produto) REFERENCES Produto(codigo_produto) ON DELETE CASCADE, 
+    FOREIGN KEY (codigo_compra) REFERENCES Compra(codigo_compra) ON DELETE CASCADE 
+);
+
