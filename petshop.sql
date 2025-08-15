@@ -132,3 +132,11 @@ INSERT INTO CompraProduto (codigo_produto, codigo_compra) VALUES
     (3, 2), 
     (1, 3); 
 
+-- Select's
+SELECT * FROM Cliente; 
+SELECT * FROM Funcionario; 
+SELECT * FROM Animal; 
+SELECT * FROM Servico_Animal;
+
+SELECT * FROM Boletim_Servicos; 
+SELECT * FROM Relatorio_Compras;
