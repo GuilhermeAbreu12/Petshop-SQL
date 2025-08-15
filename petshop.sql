@@ -8,3 +8,12 @@ CREATE TABLE Cliente(
     endereco TEXT NOT NULL 
 ); 
 
+CREATE TABLE Animal( 
+    Codigo INT PRIMARY KEY AUTO_INCREMENT, 
+    nome VARCHAR(100) NOT NULL, 
+    tipo VARCHAR(30) NOT NULL, 
+    CPF_dono VARCHAR(11) NOT NULL, 
+
+    FOREIGN KEY(CPF_dono) REFERENCES Cliente(CPF) ON DELETE CASCADE 
+); 
+
