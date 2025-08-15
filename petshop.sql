@@ -47,3 +47,14 @@ CREATE TABLE Produto(
     qtd_estoque INT NOT NULL 
 ); 
 
+CREATE TABLE Compra( 
+    codigo_compra INT AUTO_INCREMENT PRIMARY KEY, 
+    CPF_cliente VARCHAR(11) NOT NULL, 
+    CPF_funcionario VARCHAR(11) NOT NULL, 
+    valor_total DECIMAL(10,2) NOT NULL, 
+    data_compra DATE NOT NULL, 
+
+    FOREIGN KEY (CPF_cliente) REFERENCES Cliente(CPF) ON DELETE CASCADE, 
+    FOREIGN KEY (CPF_funcionario) REFERENCES Funcionario(CPF) ON DELETE CASCADE 
+); 
+
