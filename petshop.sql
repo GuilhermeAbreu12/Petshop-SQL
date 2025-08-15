@@ -67,3 +67,17 @@ CREATE TABLE CompraProduto(
     FOREIGN KEY (codigo_compra) REFERENCES Compra(codigo_compra) ON DELETE CASCADE 
 );
 
+-- Views
+CREATE OR REPLACE VIEW Boletim_Servicos AS 
+    SELECT 
+        C.nome AS nome_cliente, 
+        A.nome AS nome_animal, 
+        S.descricao_servico AS descricao_servico, 
+        F.nome AS nome_funcionario, 
+        S.preco AS preco, 
+        S.data_servico AS data_servico 
+    FROM Servico_Animal S 
+        JOIN Cliente C ON C.CPF = S.CPF_cliente 
+        JOIN Funcionario F ON F.CPF = S.CPF_funcionario 
+        JOIN Animal A ON A.Codigo = S.codigo_animal; 
+
