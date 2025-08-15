@@ -17,3 +17,11 @@ CREATE TABLE Animal(
     FOREIGN KEY(CPF_dono) REFERENCES Cliente(CPF) ON DELETE CASCADE 
 ); 
 
+CREATE TABLE Funcionario( 
+    CPF VARCHAR(11) PRIMARY KEY NOT NULL, 
+    nome VARCHAR(100) NOT NULL, 
+    endereco VARCHAR(200) NOT NULL, 
+    telefone VARCHAR(12) NOT NULL, 
+    funcao VARCHAR(200) NOT NULL 
+); 
+
