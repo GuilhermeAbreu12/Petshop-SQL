@@ -95,3 +95,40 @@ CREATE OR REPLACE VIEW Relatorio_Compras AS
         JOIN CompraProduto CP ON CP.codigo_compra = CO.codigo_compra
         JOIN Produto P ON P.codigo_produto = CP.codigo_produto;  
 
+-- Insert values
+INSERT INTO Cliente (CPF, nome, telefone, endereco) VALUES 
+    ('12345678900', 'Jair Ferreira', '14999990000', 'Rua A, 100 - Marília'), 
+    ('98765432100', 'Marina Messias', '14999991111', 'Rua B, 200 - Marília'), 
+    ('45678912300', 'Nikolas Silva', '14999992222', 'Rua C, 300 - Marília'); 
+
+INSERT INTO Animal (nome, tipo, CPF_dono) VALUES 
+    ('Flutter', 'Cachorro', '12345678900'), 
+    ('Eu', 'Gato', '98765432100'), 
+    ('Gaio', 'Papagaio', '45678912300'); 
+
+INSERT INTO Funcionario (CPF, nome, endereco, telefone, funcao) VALUES 
+    ('11223344556', 'Fernanda Oliveira', 'Rua Zilda Bolsonaro, 10 - Marília', '14988880000', 'Veterinária'), 
+    ('22334455667', 'Ricardo Mendes', 'Rua Yumi Iupy, 20 - Marília', '14987771111', 'Banho e Tosa'), 
+    ('33445566778', 'Juliana Rocha', 'Rua Professor Xavier, 30 - Marília', '14986662222', 'Atendente'); 
+
+INSERT INTO Servico_Animal (CPF_cliente, CPF_funcionario, codigo_animal, descricao_servico, preco, data_servico) VALUES 
+    ('12345678900', '11223344556', 1, 'Consulta clínica', 120.00, '2025-07-31'), 
+    ('98765432100', '22334455667', 2, 'Banho e Tosa', 80.00, '2025-07-30'), 
+    ('45678912300', '11223344556', 3, 'Consulta e vacinação', 150.00, '2025-07-29'); 
+
+INSERT INTO Produto (nome, descricao, preco, qtd_estoque) VALUES
+    ('Ração Premium', 'Ração para cães adultos', 150.00, 20),
+    ('Coleira Luxo', 'Coleira de couro ajustável', 80.00, 15),
+    ('Brinquedo Bola', 'Bola de borracha para cães', 25.00, 30);
+
+INSERT INTO Compra (CPF_cliente, CPF_funcionario, valor_total, data_compra) VALUES
+    ('12345678900', '11223344556', 250.00, '2025-08-04'),
+    ('98765432100', '22334455667', 300.00, '2025-08-04'),
+    ('45678912300', '33445566778', 150.00, '2025-08-04');
+
+INSERT INTO CompraProduto (codigo_produto, codigo_compra) VALUES
+    (1, 1),
+    (2, 1),  
+    (3, 2), 
+    (1, 3); 
+
