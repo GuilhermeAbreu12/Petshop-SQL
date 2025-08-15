@@ -81,3 +81,17 @@ CREATE OR REPLACE VIEW Boletim_Servicos AS
         JOIN Funcionario F ON F.CPF = S.CPF_funcionario 
         JOIN Animal A ON A.Codigo = S.codigo_animal; 
 
+CREATE OR REPLACE VIEW Relatorio_Compras AS 
+	SELECT 
+		CL.nome AS nome_cliente, 
+        F.nome AS nome_funcionario, 
+        CO.codigo_compra AS codigo_compra, 
+        P.nome AS nome_produto, 
+        CO.valor_total AS valor_total, 
+        CO.data_compra AS data_compra 
+    FROM Compra CO
+		JOIN Cliente CL ON CL.CPF = CO.CPF_cliente
+        JOIN Funcionario F ON F.CPF = CO.CPF_funcionario
+        JOIN CompraProduto CP ON CP.codigo_compra = CO.codigo_compra
+        JOIN Produto P ON P.codigo_produto = CP.codigo_produto;  
+
