@@ -1,5 +1,11 @@
-CREATE DATABASE petshop;
+CREATE DATABASE IF NOT EXISTS petshop;
 USE petshop;  
+
+-- RESET INICIAL
+DROP TABLE IF EXISTS Cliente, Animal, Funcionario, Servico_Animal, Produto, Compra, CompraProduto;
+DROP VIEW IF EXISTS Boletim_Servicos, Relatorio_Compras;
+DROP PROCEDURE IF EXISTS servicos_cliente;
+DROP PROCEDURE IF EXISTS servicos_por_data;
 
 CREATE TABLE Cliente( 
     CPF VARCHAR(11) PRIMARY KEY NOT NULL, 
