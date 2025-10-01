@@ -65,8 +65,9 @@ CREATE TABLE Compra(
 ); 
 
 CREATE TABLE CompraProduto(
-    codigo_produto INT, 
-    codigo_compra INT, 
+    codigo_produto INT NOT NULL,
+    codigo_compra INT NOT NULL,
+    quantidade INT NOT NULL,
 
     PRIMARY KEY (codigo_produto, codigo_compra),
     FOREIGN KEY (codigo_produto) REFERENCES Produto(codigo_produto) ON DELETE CASCADE, 
@@ -132,11 +133,11 @@ INSERT INTO Compra (CPF_cliente, CPF_funcionario, valor_total, data_compra) VALU
     ('98765432100', '22334455667', 300.00, '2025-08-04'),
     ('45678912300', '33445566778', 150.00, '2025-08-04');
 
-INSERT INTO CompraProduto (codigo_produto, codigo_compra) VALUES
-    (1, 1),
-    (2, 1),  
-    (3, 2), 
-    (1, 3); 
+INSERT INTO CompraProduto (codigo_produto, codigo_compra, quantidade) VALUES
+    (1, 1, 5),
+    (2, 1, 2),  
+    (3, 2, 3), 
+    (1, 3, 4); 
 
 -- Select's
 SELECT * FROM Cliente; 
