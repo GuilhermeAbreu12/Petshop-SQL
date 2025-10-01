@@ -190,6 +190,9 @@ CREATE PROCEDURE Relatorio_Compras_Por_Periodo()
 BEGIN
 	SELECT *
     FROM Relatorio_Compras
+		JOIN CompraProduto CP ON CP.codigo_compra = Relatorio_Compras.codigo_compra 
     WHERE data_compra >= '2025-01-01' AND data_compra <= '2025-09-10';
 END $$
 DELIMITER ;
+
+CALL Relatorio_Compras_Por_Periodo();
