@@ -148,9 +148,10 @@ SELECT * FROM Servico_Animal;
 SELECT * FROM Boletim_Servicos; 
 SELECT * FROM Relatorio_Compras;
 
--- Procedure --
-DROP PROCEDURE IF EXISTS servicos_cliente;
+-- Procedures --
 
+-- Procedure 1
+DROP PROCEDURE IF EXISTS servicos_cliente;
 DELIMITER $$
 CREATE PROCEDURE servicos_cliente(
 	IN CPF VARCHAR(11)
@@ -164,3 +165,18 @@ END $$
 DELIMITER ;
 
 CALL servicos_cliente (98765432100);
+
+-- Procedure 2
+DROP PROCEDURE IF EXISTS servicos_por_data;
+DELIMITER $$
+CREATE PROCEDURE servicos_por_data (
+	IN data_inicial DATE
+)
+BEGIN
+	SELECT *
+    FROM Boletim_Servicos
+	WHERE data_servico >= data_inicial;
+END $$
+DELIMITER ;
+
+CALL servicos_por_data ('2025-07-30');
