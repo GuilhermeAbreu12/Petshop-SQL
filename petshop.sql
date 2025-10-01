@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS Cliente, Animal, Funcionario, Servico_Animal, Produto, Comp
 DROP VIEW IF EXISTS Boletim_Servicos, Relatorio_Compras;
 DROP PROCEDURE IF EXISTS servicos_cliente;
 DROP PROCEDURE IF EXISTS servicos_por_data;
+DROP PROCEDURE IF EXISTS Relatorio_Compras_Por_Periodo;
 
 CREATE TABLE Cliente( 
     CPF VARCHAR(11) PRIMARY KEY NOT NULL, 
