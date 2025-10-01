@@ -62,7 +62,7 @@ CREATE TABLE CompraProduto(
     codigo_produto INT, 
     codigo_compra INT, 
 
-    PRIMARY KEY (codigo_produto, codigo_compra) 
+    PRIMARY KEY (codigo_produto, codigo_compra),
     FOREIGN KEY (codigo_produto) REFERENCES Produto(codigo_produto) ON DELETE CASCADE, 
     FOREIGN KEY (codigo_compra) REFERENCES Compra(codigo_compra) ON DELETE CASCADE 
 );
@@ -140,3 +140,20 @@ SELECT * FROM Servico_Animal;
 
 SELECT * FROM Boletim_Servicos; 
 SELECT * FROM Relatorio_Compras;
+
+-- Procedure --
+DROP PROCEDURE IF EXISTS servicos_cliente;
+
+DELIMITER $$
+CREATE PROCEDURE servicos_cliente(
+	IN CPF VARCHAR(11)
+)
+BEGIN
+	SELECT *
+    FROM Boletim_Servicos
+		JOIN Cliente C ON Boletim_Servicos.nome_cliente = C.nome
+    WHERE C.CPF = CPF;
+END $$
+DELIMITER ;
+
+CALL servicos_cliente (98765432100);
