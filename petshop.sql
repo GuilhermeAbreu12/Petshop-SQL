@@ -180,3 +180,15 @@ END $$
 DELIMITER ;
 
 CALL servicos_por_data ('2025-07-30');
+
+-- Procedure 3
+DROP PROCEDURE IF EXISTS Relatorio_Compras_Por_Periodo;
+
+DELIMITER $$
+CREATE PROCEDURE Relatorio_Compras_Por_Periodo()
+BEGIN
+	SELECT *
+    FROM Relatorio_Compras
+    WHERE data_compra >= '2025-01-01' AND data_compra <= '2025-09-10';
+END $$
+DELIMITER ;
